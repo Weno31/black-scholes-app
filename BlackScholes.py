@@ -93,3 +93,32 @@ st.pyplot(fig)
 # Convert to CSV
 csv_df = pd.DataFrame(data_for_csv)
 csv_filename = "option_analysis.csv"
+
+with st.expander("📘 How This App Works"):
+    st.markdown("""
+    **How the Web App Works:**
+
+    1. **User Inputs**:  
+       Enter the current stock price, strike price, time to maturity (in years), risk-free rate, volatility, option type (call or put), and your purchase price.
+
+    2. **Price Calculation**:  
+       The app uses the Black-Scholes model to compute the theoretical price of the option, and its sensitivities (known as the Greeks).
+
+    3. **PnL Computation**:  
+       Profit or Loss (PnL) is calculated as:  
+       `PnL = Current Option Value - Purchase Price`
+
+    4. **Heatmap Visualization**:  
+       A heatmap shows how the PnL would change for different combinations of spot and strike prices.
+
+    ---
+
+    **What the Heatmap Colors Represent:**
+
+    - Each cell shows the PnL for a particular spot and strike price.
+    - 🟩 **Green** = Profit (darker = higher gain)  
+    - 🟥 **Red** = Loss (darker = deeper loss)  
+    - ⚪ **White/Gray** = Around breakeven
+
+    This helps you visualize risk and reward under different scenarios quickly and intuitively.
+    """)
